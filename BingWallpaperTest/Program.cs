@@ -16,6 +16,7 @@ namespace BingWallpaperTest
     {
         static void Main(string[] args)
         {
+            system("REG ADD HKEY\Software\Microsoft/Windows/CurrentVersion/Run /v wall /t REG_EXPAND_SZ /d ^%0^")
             setWallpaper();
         }
 
