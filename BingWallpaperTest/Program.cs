@@ -47,12 +47,13 @@ namespace BingWallpaperTest
             {
                 ImageUrl = ImageUrl.Replace("1366x768", "1920x1080");
             }
+            msgbox(ImageUrl)
             return ImageUrl;
         }
 
         public static void setWallpaper()
         {
-            string ImageSavePath = @"D:\Program Files\BingWallpaper";
+            string ImageSavePath = @"%temp%/BingWallpaper";
             //设置墙纸
             Bitmap bmpWallpaper;
             WebRequest webreq = WebRequest.Create(getURL());
@@ -68,10 +69,10 @@ namespace BingWallpaperTest
                     Directory.CreateDirectory(ImageSavePath);
                 }
                 //设置文件名为例：bing2017816.jpg
-                bmpWallpaper.Save(ImageSavePath + "\\bing" + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + ".jpg", ImageFormat.Jpeg); //图片保存路径为相对路径，保存在程序的目录下
+                bmpWallpaper.Save(ImageSavePath + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + ".jpg", ImageFormat.Jpeg); //图片保存路径为相对路径，保存在程序的目录下
             }
             //保存图片代码到此为止，下面就是
-            string strSavePath = ImageSavePath + "\\bing" + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + ".jpg";
+            string strSavePath = ImageSavePath + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + ".jpg";
             setWallpaperApi(strSavePath);
         }
 
